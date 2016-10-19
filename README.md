@@ -1,0 +1,1 @@
+# spearmint_docker
