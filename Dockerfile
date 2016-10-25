@@ -7,7 +7,7 @@ RUN echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.2 main" | 
 
 
 RUN apt-get update && \
-    apt-get install -y mongodb-org cmake && \
+    apt-get install -y mongodb-org gfortran && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
@@ -22,27 +22,33 @@ RUN conda install -c anaconda boost
 #spearmint
 USER root
 
-#RUN git clone -b PESC https://github.com/HIPS/Spearmint.git &&\
-#spearmint with python 3 support
-RUN git clone -b python3 https://github.com/redst4r/Spearmint.git
-#COPY Spearmint3/ /home/$NB_USER/work/Spearmint3
-RUN mv Spearmint Spearmint3 && \
-    cd Spearmint3 && \
+# Spearmint with python 3 support
+RUN git clone -b python3 https://github.com/redst4r/Spearmint.git &&\
+    cd Spearmint && \
     python setup.py install && \
-    rm -rf .git
-    #cd .. &&\
-    #rm -rf Spearmint
-RUN pip install pymongo
+    cd .. &&\
+    rm -rf Spearmint
+
+RUN conda install -c conda-forge -q -y pymongo
 
 #  NLOPT
+RUN conda install -c conda-forge -q -y nlopt
 
-#RUN wget http://ab-initio.mit.edu/nlopt/nlopt-2.4.2.tar.gz
-#RUN tar -zxvf nlopt-2.4.2.tar.gz
-#RUN cd nlopt-2.4.2 &&\
-#    mkdir build &&\
-#    ./configure --enable-shared &&\
-#    make &&\
-#    make install
+# Spearmint PESM
+
+RUN source activate python2 &&\
+    git clone -b PESM https://github.com/HIPS/Spearmint.git &&\
+    cd Spearmint && \
+    python setup.py install && \
+    cd .. &&\
+    rm -rf Spearmint
+
+RUN conda install -c conda-forge -n python2 -q -y pymongo
+
+RUN conda install -c conda-forge -n python2 -q -y pygmo=1.1.7
+RUN conda install -c conda-forge -n python2 -q -y nlopt
+
+
 
 # Pygmo
 #PyGMO
