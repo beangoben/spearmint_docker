@@ -3,10 +3,8 @@ FROM  beangoben/pimp_jupyter
 USER root
 #install mongo
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927 &&\
-    echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.2 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
-
-
-RUN apt-get update && \
+    echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.2 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list &&\
+    apt-get update && \
     apt-get install -y mongodb-org gfortran && \
     apt-get clean && \
     apt-get autoclean && \
@@ -16,9 +14,6 @@ RUN mkdir -p /data/db &&\
     sudo chown -R $NB_USER /data/db
 # Expose port 27017 from the container to the host
 EXPOSE 27017
-
-#spearmint
-USER root
 
 # Spearmint with python 3 support
 #requirements
