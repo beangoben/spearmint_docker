@@ -1,6 +1,6 @@
 # Spearmint docker image
 
-Wanna test out Bayesian Optimziation with jupyter notebook support?
+Wanna test out Bayesian Optimization with jupyter notebook support?
 
 ## What's included?
 
