@@ -1,0 +1,10 @@
+Job launching after 0.35 seconds in submission.
+Running python job.
+Changed into dir /home/jovyan/work/test_py2
+Importing branin.py
+Running branin.main()
+Got result 3.77122897942
+Completed successfully in 0.00 seconds. [{u'Objective': 3.7712289794221494}]
+Anything printed here will end up in the output directory for job #37
+{u'y': array([ 15.]), u'x': array([-3.92221586])}
+Result = 3.771229

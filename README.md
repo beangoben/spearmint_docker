@@ -23,13 +23,13 @@ To run the software on any computer you need to install [docker](https://www.doc
 Then you can either download or build the docker image.
 
 ### 1) Get image
-#### Pull from dockerhub
+#### a) Pull from dockerhub
 To download running the following command in your favorite terminal:
 
 ```
 docker pull beangoben/spearmint_docker
 ```
-#### Build it locally
+#### b) Build it locally
 of build it (good to change things) by moving to the git cloned repository :
 
 ```
@@ -37,18 +37,29 @@ docker build -t "beangoben/spearmint_docker" .
 ```
 ### 2) Run image
 
-#### As a jupyter notebook server
+#### a) As a jupyter notebook server
 And then move to whatever folder you want to work with and execute:
 
 ```
 docker run -p 8888:8888 -v "$(pwd)":/home/jovyan/work -it beangoben/spearmint_docker
 ```
 
-#### As a executable script
+#### b) As a executable script
 
 You can also execute spearmint directly on your experiment folder "test_py2" using:
 
 
 ```
-docker run -p 8888:8888 -v "$(pwd)":/home/jovyan/work -it beangoben/spearmint_docker start.sh ./experiment_py2.sh test_py2
+docker run -p 8888:8888 -v "$(pwd)":/home/jovyan/work -it beangoben/spearmint_docker start.sh ./run_experiment_py2.sh test_py2
+```
+
+#### c) Utility script *run_spearmint.sh*
+
+Basically a utility wrapped for the above command with three inputs, only the first is required: **EXP_DIR** (experiment name, i.g. *test_py2*), **PY** (default is *py2*) and **PORT** (default is *8888*).
+
+Some examples of running this are:
+```
+./run_spearmint.sh test_py3 py3 8890
+./run_spearmint.sh test_py2 py2
+./run_spearmint.sh test_py2
 ```
