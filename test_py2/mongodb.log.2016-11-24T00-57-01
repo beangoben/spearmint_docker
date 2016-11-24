@@ -1,0 +1,37 @@
+2016-11-24T00:44:11.765+0000 I CONTROL  [initandlisten] MongoDB starting : pid=59 port=27017 dbpath=/home/jovyan/work/test_py2/db 64-bit host=c1f170dbe481
+2016-11-24T00:44:11.765+0000 I CONTROL  [initandlisten] db version v3.2.11
+2016-11-24T00:44:11.765+0000 I CONTROL  [initandlisten] git version: 009580ad490190ba33d1c6253ebd8d91808923e4
+2016-11-24T00:44:11.765+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.1t  3 May 2016
+2016-11-24T00:44:11.765+0000 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-11-24T00:44:11.765+0000 I CONTROL  [initandlisten] modules: none
+2016-11-24T00:44:11.765+0000 I CONTROL  [initandlisten] build environment:
+2016-11-24T00:44:11.765+0000 I CONTROL  [initandlisten]     distmod: debian71
+2016-11-24T00:44:11.765+0000 I CONTROL  [initandlisten]     distarch: x86_64
+2016-11-24T00:44:11.765+0000 I CONTROL  [initandlisten]     target_arch: x86_64
+2016-11-24T00:44:11.765+0000 I CONTROL  [initandlisten] options: { processManagement: { fork: true }, storage: { dbPath: "test_py2/db" }, systemLog: { destination: "file", path: "test_py2/mongodb.log" } }
+2016-11-24T00:44:11.782+0000 I -        [initandlisten] Detected data files in /home/jovyan/work/test_py2/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2016-11-24T00:44:11.782+0000 W -        [initandlisten] Detected unclean shutdown - /home/jovyan/work/test_py2/db/mongod.lock is not empty.
+2016-11-24T00:44:11.782+0000 W STORAGE  [initandlisten] Recovering data from the last clean checkpoint.
+2016-11-24T00:44:11.782+0000 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=8G,session_max=20000,eviction=(threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
+2016-11-24T00:44:12.037+0000 I CONTROL  [initandlisten] 
+2016-11-24T00:44:12.037+0000 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+2016-11-24T00:44:12.037+0000 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+2016-11-24T00:44:12.037+0000 I CONTROL  [initandlisten] 
+2016-11-24T00:44:12.038+0000 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/home/jovyan/work/test_py2/db/diagnostic.data'
+2016-11-24T00:44:12.038+0000 I NETWORK  [HostnameCanonicalizationWorker] Starting hostname canonicalization worker
+2016-11-24T00:44:12.038+0000 I NETWORK  [initandlisten] waiting for connections on port 27017
+2016-11-24T00:44:13.008+0000 I FTDC     [ftdc] Unclean full-time diagnostic data capture shutdown detected, found interim file, some metrics may have been lost. OK
+2016-11-24T00:44:14.393+0000 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:48918 #1 (1 connection now open)
+2016-11-24T00:44:17.370+0000 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:48956 #2 (2 connections now open)
+2016-11-24T00:44:17.389+0000 I NETWORK  [conn2] end connection 127.0.0.1:48956 (1 connection now open)
+2016-11-24T00:44:43.311+0000 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:49102 #3 (2 connections now open)
+2016-11-24T00:44:43.312+0000 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:49104 #4 (3 connections now open)
+2016-11-24T00:44:53.987+0000 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:49248 #5 (4 connections now open)
+2016-11-24T00:44:53.987+0000 I NETWORK  [conn3] end connection 127.0.0.1:49102 (2 connections now open)
+2016-11-24T00:44:53.987+0000 I NETWORK  [conn4] end connection 127.0.0.1:49104 (2 connections now open)
+2016-11-24T00:45:07.244+0000 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:49546 #6 (3 connections now open)
+2016-11-24T00:45:07.244+0000 I NETWORK  [conn5] end connection 127.0.0.1:49248 (2 connections now open)
+2016-11-24T00:45:16.529+0000 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:49712 #7 (3 connections now open)
+2016-11-24T00:55:58.215+0000 I NETWORK  [conn6] end connection 127.0.0.1:49546 (2 connections now open)
+2016-11-24T00:55:58.215+0000 I NETWORK  [conn7] end connection 127.0.0.1:49712 (2 connections now open)
+2016-11-24T00:55:58.452+0000 I NETWORK  [conn1] end connection 127.0.0.1:48918 (0 connections now open)
