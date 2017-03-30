@@ -21,8 +21,12 @@ RUN conda install -c conda-forge -n python2 -q -y pymongo pygmo=1.1.7 nlopt &&\
     conda install -n python2 -f scipy==0.18.0 &&\
     conda clean --all
 
-COPY install /home/jovyan/work
+#COPY install /home/jovyan/work
 RUN source activate python2 &&\
-    python setup.py install
+    git clone -b PESC https://github.com/HIPS/Spearmint.git &&\
+    cd Spearmint && \
+    python setup.py install && \
+    cd .. &&\
+    rm -rf Spearmint
 
 USER $NB_USER
