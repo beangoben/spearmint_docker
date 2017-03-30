@@ -15,30 +15,14 @@ RUN mkdir -p /data/db &&\
 # Expose port 27017 from the container to the host
 EXPOSE 27017
 
-# Spearmint with python 3 support
-#requirements
-RUN conda install -c conda-forge -q -y pymongo nlopt &&\
-    conda clean --all
-# download source and build
-RUN git clone -b python3 https://github.com/redst4r/Spearmint.git &&\
-    cd Spearmint && \
-    python setup.py install && \
-    cd .. &&\
-    rm -rf Spearmint
-
-
-
 # Spearmint PESM
 #requirements
 RUN conda install -c conda-forge -n python2 -q -y pymongo pygmo=1.1.7 nlopt &&\
+    conda install -n python2 -f scipy==0.18.0 &&\
     conda clean --all
-# download source and build
+
+COPY install /home/jovyan/work
 RUN source activate python2 &&\
-    git clone -b PESM https://github.com/HIPS/Spearmint.git &&\
-    cd Spearmint && \
-    python setup.py install && \
-    cd .. &&\
-    rm -rf Spearmint
+    python setup.py install
 
-
-
+USER $NB_USER
