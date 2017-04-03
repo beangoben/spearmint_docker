@@ -12,7 +12,7 @@ def replace_textdict(afile, bfile, adict):
 
 
 def create_odysseyjob(job_id, job_dir):
-    template_file = 'Job_template.sl'
+    template_file = 'templates/Job.sl'
     new_calc = os.path.join(job_dir, 'job.sh')
     calc_dict = {'n_cores': 1, 'n_nodes': 1, 'hour': 12}
     calc_dict['mem_cpu'] = 1000

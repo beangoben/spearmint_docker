@@ -1,14 +1,22 @@
 {
     "language"        : "PYTHON",
-    "main_file"       : "branin.py",
-    "experiment-name" : "simple-braninhoo-example",
+    "main_file"       : "ody_bo.py",
+    "experiment-name" : "odyssey_bo",
     "likelihood"      : "NOISELESS",
+    "acquisition"     : "PES",
+    "polling_time"    : 1,
+    "resources" : {
+        "my-machine" : {
+            "scheduler"         : "local",
+            "max_concurrent"    : 1,
+            "max_finished_jobs" : 20
+        }
+    },
     "variables" : {
-        "x" : {
-            "type" : "FLOAT",
+        "activation" : {
+            "type" : "ENUM",
             "size" : 1,
-            "min"  : -5,
-            "max"  : 10
+            "options"  : ["tanh","relu"]
         },
         "y" : {
             "type" : "FLOAT",
@@ -16,6 +24,11 @@
             "min"  : 0,
             "max"  : 15
         }
-    }
+    },
+    "tasks": {
+      "result" : {
+          "type"        : "OBJECTIVE"
+      }
+  }
 }
 
