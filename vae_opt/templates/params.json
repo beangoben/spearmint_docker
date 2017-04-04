@@ -1,0 +1,7 @@
+{
+    "intermediate_dim" : 8,
+    "latent_dim" : 2,
+    "dec_h_activation":"relu",
+    "dec_mean_activation":"sigmoid"
+}
+

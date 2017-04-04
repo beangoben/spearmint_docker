@@ -1,9 +1,6 @@
-# Supercomputer BO optimizer
-
-These scripts are made to run spearmint as a bayesian optimizer on a local machine as a docker image. Job files are created and monitored and then results parsed out to create new jobs. Jobs are submitted to a supercomputer cluster using slurm.
-
-Use for  optimizing the hyperparameters
-for a variational autoencoder on MNIST data.
+# VAE BO optimizer
+These scripts are made to run spearmint as a bayesian optimizer on a local machine as a docker image, while optimizing the hyperparameters
+for a variational autoencoder on MNIST data, also on your local machine
 
 To use it, you will want to modify **bo_utils.py**. Following are the steps to run it.
 
@@ -15,18 +12,10 @@ To use it, you will want to modify **bo_utils.py**. Following are the steps to r
 * **config.json** hyperparameter space to explore.
 
 ## Run a local job manager
-Assuming you are in a directory inside of your favorite supercomputer (maybe odyssey) you run a command to start your automated job submitter, for example:
 
 ```
-python job_manager.py -r "$(pwd)"/Jobs -s
-python job_manager.py -r "$(pwd)"/Jobs
-```
-
-## Mount virtual drive locally
-Using sshfs:
-
-```
-sshfs user@domain:path_to_jobs/Jobs "$(pwd)"/Jobs
+python job_manager.py -r "$(pwd)"/vae_opt/Jobs -s
+python job_manager.py -r "$(pwd)"/vae_opt/Jobs -e engines.LocalEngine -p2
 ```
 
 ## Run docker image on this folder
