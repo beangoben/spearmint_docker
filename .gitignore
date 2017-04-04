@@ -6,7 +6,10 @@ __pycache__/
 */output/*
 # C extensions
 *.so
-
+signalhandler.py
+engines.py
+job_manager.py
+*/Jobs/*
 # Distribution / packaging
 .Python
 env/
