@@ -1,13 +1,13 @@
 {
     "language"        : "PYTHON",
     "main_file"       : "bo_loop.py",
-    "experiment-name" : "vae_opt",
+    "experiment-name" : "ody_bo",
     "likelihood"      : "NOISELESS",
     "acquisition"     : "PES",
     "polling_time"    : 1,
     "resources" : {
         "my-machine" : {
-            "scheduler"         : "local",
+            "scheduler"         : "supercomputer",
             "max_concurrent"    : 1,
             "max_finished_jobs" : 50
         }
