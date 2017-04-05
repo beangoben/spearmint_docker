@@ -9,7 +9,7 @@ To use it, you will want to modify **bo_utils.py**. Following are the steps to r
 ## Edit bo_utils and templates
 
 * **bo_loop.py** is the bo file that imports **bo_utils.py** to do the whole bo loop. Not much editing is needed here.
-* **bo_utils.py** is a python module used in bo_loop.py, it has functions for 
+* **bo_utils.py** is a python module used in bo_loop.py, it has functions for :
   1. (`create_job(job_id, param, job_dir)`) : Creating all the job files neeeded to run in your supercomputer 
   2. (`parse_job(job_id, job_dir)`): Parsing calculations for results from a job, will be looking for a string called " Final Result = ".
   3. (`not_ready(job_id, job_dir)`): Determine when a calculation is ready to be parsed, basically scanning the result file for a string such as "\*\*FINISHED\*\*".
