@@ -1,7 +1,7 @@
 from __future__ import print_function
 import os
 import jinja2
-from shutil import copy, copymode
+from shutil import copy
 import json
 
 MAIN_SCRIPT = 'keras_test.py'
@@ -13,19 +13,6 @@ def replace_textdict(afile, bfile, adict):
     open(bfile, 'w').write(btxt)
     return
 
-
-def create_script(job_id, job_dir):
-    template_file = 'templates/Job.sh'
-    new_calc = os.path.join(job_dir, 'job.sh')
-    calc_dict = {}
-    calc_dict['job_name'] = 'job_{:d}'.format(job_id)
-    calc_dict['script_name'] = MAIN_SCRIPT
-    replace_textdict(template_file, new_calc, calc_dict)
-    # copy executable permissions
-    copymode(template_file, new_calc)
-    return
-
-
 def create_paramjson(param, job_dir):
     p = {k: v[0] for k, v in param.items()}
     new_json = os.path.join(job_dir, 'params.json')
@@ -34,12 +21,23 @@ def create_paramjson(param, job_dir):
     return
 
 
+def create_odysseyjob(job_id, job_dir):
+    template_file = 'templates/Job_template.sl'
+    new_calc = os.path.join(job_dir, 'job.sl')
+    calc_dict = {'n_cores': 1, 'n_nodes': 1, 'hour': 12}
+    calc_dict['mem_cpu'] = 1000
+    calc_dict['job_name'] = 'job_{:d}'.format(job_id)
+    calc_dict['script_name'] = 'test.py'
+    replace_textdict(template_file, new_calc, calc_dict)
+    return
+
 def create_job(job_id, param, job_dir):
     new_dir = os.path.join(job_dir, 'job_{:d}'.format(job_id))
     if not os.path.exists(new_dir):
         os.makedirs(new_dir)
-    create_script(job_id, new_dir)
+    create_odysseyjob(job_id, new_dir)
     # create files
+    # add any files you want to include on your job
     for i in [MAIN_SCRIPT]:
         copy('templates/{}'.format(i), new_dir)
     create_paramjson(param, new_dir)
@@ -47,6 +45,8 @@ def create_job(job_id, param, job_dir):
 
 
 def not_ready(job_id, job_dir):
+    # function is looking for this string
+    # to indicate it has finished
     a_str = '**FINISHED**'
     job_file = os.path.join(job_dir, 'results.out')
     answer = True
@@ -58,6 +58,8 @@ def not_ready(job_id, job_dir):
 
 
 def parse_job(job_id, job_dir):
+    # the parser is looking for this particular string
+    # at the end of the file to parse out a result
     a_str = ' Final Result = '
     result_file = os.path.join(job_dir, 'results.out')
 

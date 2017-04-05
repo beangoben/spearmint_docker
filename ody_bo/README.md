@@ -2,8 +2,7 @@
 
 These scripts are made to run spearmint as a bayesian optimizer on a local machine as a docker image. Job files are created and monitored and then results parsed out to create new jobs. Jobs are submitted to a supercomputer cluster using slurm.
 
-Use for  optimizing the hyperparameters
-for a variational autoencoder on MNIST data.
+Use for optimizing the hyperparameters for a variational autoencoder on MNIST data.
 
 To use it, you will want to modify **bo_utils.py**. Following are the steps to run it.
 
@@ -14,11 +13,10 @@ To use it, you will want to modify **bo_utils.py**. Following are the steps to r
 * **templates** if a folder with template files for a normal job. **bo_utils.py** uses jinja2 to do text replacement on several files.
 * **config.json** hyperparameter space to explore.
 
-## Run a local job manager
+## Run the job manager
 Assuming you are in a directory inside of your favorite supercomputer (maybe odyssey) you run a command to start your automated job submitter, for example:
 
 ```
-python job_manager.py -r "$(pwd)"/Jobs -s
 python job_manager.py -r "$(pwd)"/Jobs
 ```
 
