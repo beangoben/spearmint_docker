@@ -12,8 +12,8 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="198.91585mm"
-   height="97.350685mm"
-   viewBox="0 0 704.81993 344.94337"
+   height="91.261505mm"
+   viewBox="0 0 704.81993 323.36754"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -116,15 +116,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="324.25665"
+     inkscape:cx="196.04236"
      inkscape:cy="124.64177"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1849"
      inkscape:window-height="1032"
-     inkscape:window-x="221"
-     inkscape:window-y="107"
+     inkscape:window-x="71"
+     inkscape:window-y="24"
      inkscape:window-maximized="0"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -138,7 +138,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -146,7 +146,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-1.7596569,30.209226)">
+     transform="translate(-1.7596569,8.6334016)">
     <rect
        style="fill:#8cf67d;fill-opacity:0.37378642;stroke:#000000;stroke-width:5.21232605;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4136-7"
@@ -172,18 +172,19 @@
        id="rect4168-7-5"
        width="125.50479"
        height="47.412922"
-       x="447.24762"
+       x="445.81906"
        y="208.65575"
        ry="15.152288"
        inkscape:export-xdpi="149.89708"
        inkscape:export-ydpi="149.89708" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#4d3aff;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:5, 10;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 231.42857,149.50506 224.28572,0 0,0"
+       d="m 246.42857,144.24304 182.14286,-0.71429 -2.85714,0.71429"
        id="path4200"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="149.89708"
-       inkscape:export-ydpi="149.89708" />
+       inkscape:export-ydpi="149.89708"
+       sodipodi:nodetypes="ccc" />
     <flowRoot
        xml:space="preserve"
        id="flowRoot4202"
@@ -201,7 +202,7 @@
          id="flowPara4208"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro'">sshfs</flowPara></flowRoot>    <g
        id="g4211"
-       transform="matrix(2.3392857,0,0,2.3392857,142.53693,-69.977083)"
+       transform="matrix(2.026971,0,0,2.026971,151.75726,-42.167734)"
        inkscape:export-xdpi="149.89708"
        inkscape:export-ydpi="149.89708">
       <path
@@ -332,7 +333,7 @@
     </g>
     <g
        id="g4286"
-       transform="matrix(2.360541,0,0,2.360541,450.35714,-14.352131)"
+       transform="matrix(2.360541,0,0,2.360541,431.85387,-8.6334016)"
        inkscape:export-xdpi="149.89708"
        inkscape:export-ydpi="149.89708">
       <rect
@@ -473,13 +474,13 @@
     <text
        xml:space="preserve"
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.64249992px;line-height:125%;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.25;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-       x="437.03043"
+       x="436.64441"
        y="199.3013"
        id="text4194-3"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4196-6"
-         x="437.03043"
+         x="436.64441"
          y="199.3013"
          style="font-size:22.5px">job_watcher.py</tspan></text>
     <path
@@ -514,7 +515,7 @@
        transform="matrix(0.59648724,-0.37678158,0.37678158,0.59648724,85.483942,249.96836)" />
     <g
        id="g4333-3"
-       transform="translate(336.80644,-4.7320848)">
+       transform="translate(336.80644,-2.3660424)">
       <g
          transform="matrix(1.252078,0,0,1.0762043,-41.088234,-11.214036)"
          id="g4274-5">
@@ -888,7 +889,7 @@
        transform="matrix(0.59648724,-0.37678158,0.37678158,0.59648724,259.32372,290.71207)" />
     <g
        id="g4333"
-       transform="translate(-1.7650164,0)">
+       transform="translate(-1.7650164,-2.3660424)">
       <g
          transform="matrix(1.252078,0,0,1.0762043,-41.088234,-11.214036)"
          id="g4274">
