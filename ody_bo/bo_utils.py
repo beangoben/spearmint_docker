@@ -17,10 +17,10 @@ def create_paramjson(param, job_dir):
 
 def create_odysseyjob(job_id, job_dir):
     template_file = 'templates/Job.sl'
-    new_calc = os.path.join(job_dir, 'job.sl')
+    new_calc = os.path.join(job_dir, 'job.sh')
     calc_dict = {'n_cores': 1, 'n_nodes': 1, 'hour': 12}
     calc_dict['mem_cpu'] = 1000
-    calc_dict['job_name'] = 'job_{:d}'.format(job_id)
+    calc_dict['job_name'] = '{:d}'.format(job_id)
     calc_dict['script_name'] = 'test.py'
     replace_textdict(template_file, new_calc, calc_dict)
     return
@@ -65,7 +65,7 @@ def parse_job(job_dir):
 
 
 def setup_dirs(job_id, adir):
-    job_dir = os.path.join(adir, 'job_{:d}'.format(job_id))
+    job_dir = os.path.join(adir, '{:d}'.format(job_id))
     if not os.path.exists(job_dir):
         os.makedirs(job_dir)
 

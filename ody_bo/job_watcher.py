@@ -7,12 +7,12 @@ import argparse
 
 
 def check_new(calc_dir, bo_job_dir, job_id):
-    job_pre = 'job_{:d}'.format(job_id)
+    job_pre = '{:d}'.format(job_id)
     new_dir = os.path.join(bo_job_dir, job_pre)
     if os.path.isdir(new_dir):
         time.sleep(5)
         inbox_dir = os.path.join(calc_dir, 'inbox')
-        print('mv job_{:d}'.format(job_id), end='')
+        print('mv {:d}'.format(job_id), end='')
         shutil.move(new_dir, inbox_dir)
     return
 
@@ -23,7 +23,7 @@ def check_result(calc_dir, bo_job_dir, job_id):
     if not os.path.exists(dst_file):
         # check if the folder is ready
         done_dir = os.path.join(calc_dir, 'completed',
-                                'job_{:d}'.format(job_id))
+                                '{:d}'.format(job_id))
         if bo_utils.is_ready(done_dir):
             src_file = os.path.join(done_dir, 'results.out')
             shutil.copy(src_file, dst_file)
