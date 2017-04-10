@@ -23,7 +23,11 @@ Following are the steps to run it:
 ## Edit bo_utils and templates
 
 * **bo_loop.py** is the bo file that imports **bo_utils.py** to do the whole bo loop. Not much editing is needed here.
-* **bo_utils.py** is a python module used in bo_loop.py, it has functions for 1) creating all the job files (`create_job(job_id, param, job_dir)`), 2) parsing calculations for results (`parse_job(job_id, job_dir)`)  and 3) determine when a calculation is ready to be parsed (`not_ready(job_id, job_dir)`). Also contains other utility functions.
+* **bo_utils.py** is a python module used in bo_loop.py, it has functions for :
+  1. (`create_job(job_id, param, job_dir)`) : Creating all the job files neeeded to run in your supercomputer 
+  2. (`parse_job(job_id, job_dir)`): Parsing calculations for results from a job, will be looking for a string called " Final Result = ".
+  3. (`not_ready(job_id, job_dir)`): Determine when a calculation is ready to be parsed, basically scanning the result file for a string such as "\*\*FINISHED\*\*".
+  4. Also contains other utility functions.
 * **templates** if a folder with template files for a normal job. **bo_utils.py** uses jinja2 to do text replacement on several files.
 * **config.json** hyperparameter space to explore.
 
@@ -35,16 +39,14 @@ python job_manager.py -r "$(pwd)"/Jobs
 ```
 
 ## Mount virtual drive locally
-Using sshfs:
-
+Using sshfs, assuming *path_to_jobs* is the previous folder location in the supercomputer.
 ```
 sshfs user@domain:path_to_jobs/Jobs "$(pwd)"/Jobs
 ```
-
 ## Run docker image on this folder
-
+The last number is optional, this is the port number for the docker server.
 ```
-./run_spearmint.sh vae_opt 8890
+./run_spearmint.sh ody_bo 8890
 ```
 ## Run job_watcher.py
 
