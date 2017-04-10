@@ -15,11 +15,11 @@ def main(job_id, params):
     write_iteration(OUTPUT_DIR, job_id)
     create_job(job_id, params, job_dir)
 
-    while not is_ready(OUTPUT_DIR):
+    while not is_ready(job_id, OUTPUT_DIR):
         time.sleep(30)
 
+    os.remove(os.path.join(OUTPUT_DIR, '{d}.done'.format(job_id)))
     result = parse_job(OUTPUT_DIR)
-    os.remove(os.path.join(OUTPUT_DIR, 'results.out'))
     time.sleep(5)
     print('Result = {:f}'.format(result))
     return {'result': result}

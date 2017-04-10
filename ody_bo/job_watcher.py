@@ -20,17 +20,19 @@ def check_new(calc_dir, bo_job_dir, job_id):
 
 def check_result(calc_dir, bo_job_dir, job_id):
     # check if result exists
-    dst_file = os.path.join(bo_job_dir, 'results.out')
-    if not os.path.exists(dst_file):
-        # check if the folder is ready
-        done_dir = os.path.join(calc_dir, 'completed',
-                                '{:d}'.format(job_id))
-        if bo_utils.is_ready(done_dir):
-            src_file = os.path.join(done_dir, 'results.out')
+    done_dir = os.path.join(calc_dir, 'completed',
+                            '{:d}'.format(job_id))
+    # check if job is done
+    if bo_utils.is_ready(job_id, done_dir):
+        done_src = os.path.join(done_dir, '{:d}.done'.format(job_id))
+        done_dst = os.path.join(bo_job_dir, '{:d}.done'.format(job_id))
+        shutil.copy(done_src, done_dst)
+        # check if reult file exists
+        src_file = os.path.join(done_dir, 'results.out')
+        if os.path.exists(src_file):
+            dst_file = os.path.join(bo_job_dir, 'results.out')
             shutil.copy(src_file, dst_file)
-            copy_file = os.path.join(done_dir, 'results_parsed.out')
-            shutil.move(src_file, copy_file)
-            print('\n\t---> moved result #{:d}'.format(job_id))
+            print('\n\t---> copied result #{:d}'.format(job_id))
     return
 
 

@@ -36,29 +36,28 @@ def create_job(job_id, param, job_dir):
     return
 
 
-def is_ready(job_dir):
-    # function is looking for this string
+def is_ready(job_id, job_dir):
+    # function is looking for a file
     # to indicate it has finished
-    a_str = '**FINISHED**'
-    job_file = os.path.join(job_dir, 'results.out')
-    answer = False
-    if os.path.exists(job_file):
-        lines = open(job_file, 'r').read()
-        answer = (lines.find(a_str) != -1)
-
+    files = [f for f in os.listdir(job_dir)]
+    answer = '{:d}.done'.format(job_id) in files
     return answer
 
 
-def parse_job(job_dir):
+def parse_job(job_dir, clean=True):
     # the parser is looking for this particular string
     # at the end of the file to parse out a result
-    a_str = ' Final Result = '
+    # default value
+    result = float('nan')
     result_file = os.path.join(job_dir, 'results.out')
-
-    for line in open(result_file, 'r').readlines():
-        if a_str in line:
-            result = float(line.replace(a_str, '').strip())
-
+    if os.path.exists(result_file):
+        a_str = ' Final Result = '
+        for line in open(result_file, 'r').readlines():
+            if a_str in line:
+                result = float(line.replace(a_str, '').strip())
+        # delete file when done
+        if clean:
+            os.remove(os.path.join(job_dir, 'results.out'))
     return result
 
 #======= Utility functions ========
