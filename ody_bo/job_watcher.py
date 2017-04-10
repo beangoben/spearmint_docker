@@ -37,6 +37,8 @@ def check_result(job_id):
         if bo_utils.is_ready(done_dir):
             src_file = os.path.join(done_dir, 'results.out')
             shutil.copy(src_file, dst_file)
+            copy_file = os.path.join(bo_job_dir, 'results_parsed.out')
+            shutil.move(src_file, copy_file)
             print('mv result_{:d}'.format(job_id), end='')
     return
 

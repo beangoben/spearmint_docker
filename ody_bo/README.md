@@ -4,6 +4,8 @@ These scripts are made to run spearmint as a bayesian optimizer on a local machi
 
 Use for optimizing the hyperparameters for a variational autoencoder on MNIST data.
 
+![](templates/diagram.png)
+
 To use it, you will want to modify **bo_utils.py**. Three folder locations are important:
 
 1. **remote odyssey folder**, this is where you will run your job submitter.
@@ -47,5 +49,5 @@ sshfs user@domain:path_to_jobs/Jobs "$(pwd)"/Jobs
 ## Run job_watcher.py
 
 ```
-./run_spearmint.sh vae_opt 8890
+python job_watcher.py
 ```
