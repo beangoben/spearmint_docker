@@ -39,8 +39,10 @@ def create_job(job_id, param, job_dir):
 def is_ready(job_id, job_dir):
     # function is looking for a file
     # to indicate it has finished
-    files = [f for f in os.listdir(job_dir)]
-    answer = '{:d}.done'.format(job_id) in files
+    answer = False
+    if os.path.exists(job_dir):
+        files = [f for f in os.listdir(job_dir)]
+        answer = '{:d}.done'.format(job_id) in files
     return answer
 
 
