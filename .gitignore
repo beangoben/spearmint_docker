@@ -9,7 +9,8 @@ __pycache__/
 signalhandler.py
 engines.py
 job_manager.py
-*/Jobs/*
+*jobs/ite
+*/jobs/*
 # Distribution / packaging
 .Python
 env/
