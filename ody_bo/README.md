@@ -2,7 +2,7 @@
 
 These scripts are made to run spearmint as a bayesian optimizer on a local machine as a docker image. Job files are created and monitored and then results parsed out to create new jobs. Jobs are submitted to a supercomputer cluster using slurm.
 
-Use for optimizing the hyperparameters for a variational autoencoder on MNIST data.
+The example included is for optimizing the hyperparameters for a variational autoencoder on MNIST data.
 
 ![](templates/diagram.png)
 
