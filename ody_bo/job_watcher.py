@@ -1,9 +1,10 @@
+from __future__ import print_function
 import os
 import shutil
-import importlib.util
 import time
 import sys
 import argparse
+import imp
 
 
 def check_new(calc_dir, bo_job_dir, job_id):
@@ -12,7 +13,7 @@ def check_new(calc_dir, bo_job_dir, job_id):
     if os.path.isdir(new_dir):
         time.sleep(5)
         inbox_dir = os.path.join(calc_dir, 'inbox')
-        print('mv {:d}'.format(job_id), end='')
+        print('\n\t---> moved new job {:d}'.format(job_id))
         shutil.move(new_dir, inbox_dir)
     return
 
@@ -29,7 +30,7 @@ def check_result(calc_dir, bo_job_dir, job_id):
             shutil.copy(src_file, dst_file)
             copy_file = os.path.join(done_dir, 'results_parsed.out')
             shutil.move(src_file, copy_file)
-            print('mv result_{:d}'.format(job_id), end='')
+            print('\n\t---> moved result #{:d}'.format(job_id))
     return
 
 
@@ -57,13 +58,11 @@ if __name__ == "__main__":
                         help='a file path containing a spearmint experiment')
     parser.add_argument('job_dir', type=str,
                         help='a file path where to transfer and monitor the jobs')
-    global bo_utils
     args = parser.parse_args()
     # load module of utilities
-    spec = importlib.util.spec_from_file_location(
-        "bo_utils", "{}/bo_utils.py".format(args.spearmint_dir))
-    bo_utils = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(bo_utils)
+    global bo_utils
+    util_path = os.path.join(args.spearmint_dir, "bo_utils.py")
+    bo_utils = imp.load_source('bo_utils', util_path)
 
     main(calc_dir=args.job_dir,
          bo_dir=args.spearmint_dir)

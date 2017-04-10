@@ -28,6 +28,7 @@ cd $SCRATCH
 mkdir -p $JOB_NAME/$SLURM_JOB_ID
 cd $JOB_NAME/$SLURM_JOB_ID
 cp -v $CUR_DIR/${SCRIPT} .
+cp -v $CUR_DIR/params.json .
 
 # run python script
 echo "running python"
