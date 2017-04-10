@@ -17,7 +17,7 @@ Following are the steps to run it:
 
 1. **Edit bo_utils and templates**, to automate the generation and parsing of files.
 2. **Run your remote job manager**.
-3. **Mount remove folder with ssfs**.
+3. **Mount remote folder with ssfs**.
 4. **Run docker image on the spearmint folder**.
 5. **Run job_watcher.py**.
 

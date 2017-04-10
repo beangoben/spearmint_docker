@@ -1,0 +1,1 @@
+{"intermediate_dim": 3, "dec_h_activation": "relu", "latent_dim": 1, "dec_mean_activation": "relu"}
