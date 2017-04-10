@@ -7,7 +7,7 @@
     "polling_time"    : 1,
     "resources" : {
         "my-machine" : {
-            "scheduler"         : "supercomputer",
+            "scheduler"         : "local",
             "max_concurrent"    : 1,
             "max_finished_jobs" : 50
         }

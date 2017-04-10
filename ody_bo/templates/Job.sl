@@ -2,7 +2,7 @@
 
 #SBATCH -n {{n_cores}}                # Number of cores
 #SBATCH -N {{n_nodes}}                # Ensure that all cores are on one machine
-#SBATCH -t 0-{{hours}:00         # Runtime in D-HH:MM
+#SBATCH -t 0-{{hours}}:00         # Runtime in D-HH:MM
 #SBATCH -p aspuru-guzik       # Partition to submit to
 #SBATCH --mem-per-cpu={{mem_cpu}}           # Memory pool for all cores (see also --mem-per-cpu)
 #SBATCH -J {{job_name}}

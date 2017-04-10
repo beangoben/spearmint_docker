@@ -1,24 +1,29 @@
 from __future__ import print_function
 import os
-from bo_utils import create_job, parse_job, not_ready
+from bo_utils import create_job, parse_job, is_ready, write_iteration
+from bo_utils import setup_dirs
 import time
 
-INPUT_DIR = os.path.join(os.getcwd(), 'Jobs', 'inbox')
-OUTPUT_DIR = os.path.join(os.getcwd(), 'Jobs', 'completed')
+INPUT_DIR = os.path.join(os.getcwd(), 'jobs')
+OUTPUT_DIR = os.path.join(os.getcwd(), 'jobs')
 
 
 def main(job_id, params):
     print('Job #%d' % job_id)
     print(params)
-    create_job(job_id, params, INPUT_DIR)
-    run_dir = os.path.join(OUTPUT_DIR, 'job_{:d}'.format(job_id))
+    job_dir = setup_dirs(job_id, INPUT_DIR)
+    write_iteration(OUTPUT_DIR, job_id)
+    create_job(job_id, params, job_dir)
 
-    while not_ready(job_id, run_dir):
+    while not is_ready(OUTPUT_DIR):
         time.sleep(30)
 
-    result = parse_job(job_id, run_dir)
+    result = parse_job(OUTPUT_DIR)
+    os.remove(os.path.join(OUTPUT_DIR, 'results.out'))
+    time.sleep(5)
     print('Result = {:f}'.format(result))
     return {'result': result}
+
 
 if __name__ == "__main__":
     print('testing')
