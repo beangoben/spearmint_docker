@@ -18,7 +18,7 @@ def main(job_id, params):
     while not is_ready(job_id, OUTPUT_DIR):
         time.sleep(30)
 
-    os.remove(os.path.join(OUTPUT_DIR, '{d}.done'.format(job_id)))
+    os.remove(os.path.join(OUTPUT_DIR, '{:d}.done'.format(job_id)))
     result = parse_job(OUTPUT_DIR)
     time.sleep(5)
     print('Result = {:f}'.format(result))

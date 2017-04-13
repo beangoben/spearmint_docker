@@ -29,7 +29,7 @@ def main():
 
     batch_size = 100
     original_dim = 784
-    epochs = 25
+    epochs = 10
     epsilon_std = 1.0
 
     def vae_loss(x, x_decoded_mean):
